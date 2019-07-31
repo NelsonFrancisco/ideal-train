@@ -1,0 +1,8 @@
+Language: Cpp
+BasedOnStyle: LLVM
+BreakBeforeBraces: Linux
+AllowShortBlocksOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+IndentWidth: 2
