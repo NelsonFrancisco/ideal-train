@@ -11,10 +11,10 @@ int main()
   int kbhit_result = 0;
   const char *buf;
 
-  init_buffer();
+  init_buffer(stdin_fd);
   while (!kbhit_result) {
     sleep(1);
-    kbhit_result = kbhit(stdin_fd);
+    kbhit_result = kbhit();
     if (kbhit_result == 0) {
       continue;
     }

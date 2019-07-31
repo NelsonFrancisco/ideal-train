@@ -6,24 +6,24 @@
 
 const int size = 30;
 char *buffer;
+struct timeval tv;
+fd_set fds;
+int fd = 0;
 
-int kbhit(int fd)
+int kbhit()
 {
-  struct timeval tv;
-  fd_set fds;
-
-  tv.tv_sec = 0;
-  tv.tv_usec = 0;
-
-  FD_ZERO(&fds);
+  FD_CLR(fd, &fds);
   FD_SET(fd, &fds);
-
   select(fd + 1, &fds, NULL, NULL, &tv);
   return FD_ISSET(fd, &fds);
 }
 
-void init_buffer()
+void init_buffer(int fd_to_check)
 {
+  fd = fd_to_check;
+  tv.tv_sec = 0;
+  tv.tv_usec = 0;
+
   buffer = (char *)calloc(size, sizeof(char));
 }
 
