@@ -3,7 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#include "non_blocking_stdin.h"
+#include "non_blocking_stdin/non_blocking_stdin.h"
 
 int main()
 {

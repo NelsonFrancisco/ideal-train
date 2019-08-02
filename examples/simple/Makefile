@@ -1,4 +1,4 @@
-LIB_FOLDER = ../..
+LIB_FOLDER = ./non_blocking_stdin
 
 test: main.o non_blocking_stdin.o
 	gcc main.o non_blocking_stdin.o -o test

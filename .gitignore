@@ -64,3 +64,6 @@ dkms.conf
 
 #executable
 test
+
+#makefile compatible excluces
+examples/simple/non_blocking_stdin
