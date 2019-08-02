@@ -4,11 +4,11 @@
 
 #include "non_blocking_stdin.h"
 
-const int size = 30;
-char *buffer;
-struct timeval tv;
-fd_set fds;
-int fd = 0;
+static const int size = 30;
+static char *buffer;
+static struct timeval tv;
+static fd_set fds;
+static int fd = 0;
 
 int kbhit()
 {
@@ -32,17 +32,19 @@ void free_buffer()
   free(buffer);
 }
 
-const char *read_stream(FILE *file)
+const char *read_stream(FILE *file, int removeNewline)
 {
-  int i = 0;
-  char c;
-
   memset(buffer, size, 0);
+
+  int i = 0;
+  char c = 0;
 
   while (c != '\n' && i < size - 1) {
     c = fgetc(file);
-    buffer[i] = c;
-    i++;
+    if (c != '\n' || removeNewline == 0) {
+      buffer[i] = c;
+      i++;
+    }
   }
 
   buffer[i] = '\0';

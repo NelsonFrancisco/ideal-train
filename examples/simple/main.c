@@ -19,11 +19,11 @@ int main()
       continue;
     }
 
-    buf = read_stream(stdin);
-    if (strcmp(buf, "q\n") == 0) {
+    buf = read_stream(stdin, 1);
+    if (strcmp(buf, "q") == 0) {
       kbhit_result = 1;
     } else {
-      fprintf(stdout, "Buffer %s", buf);
+      fprintf(stdout, "Buffer %s\n", buf);
       kbhit_result = 0;
     }
   }
